@@ -91,20 +91,6 @@ let g:netrw_preview   = 1
 let g:netrw_liststyle = 3
 let g:netrw_winsize   = 30
 
-" ===================
-"  插件设置
-" ===================
-
-" ***** vundle插件管理 *****
-filetype off                   " required!
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
-Plugin 'VundleVim/Vundle.vim'
-Bundle 'kien/ctrlp.vim'
-Plugin 'ervandew/supertab'
-Plugin 'wilon/vim-tips'
-filetype plugin indent on     " required!
-
 " ***** 设置NerdTree *****
 "nautocmd VimEnter * NERDTree
 " let NERDTreeFile='C:\xampp\htdocs\'  " 默认加载目录
@@ -139,15 +125,6 @@ let g:ycm_auto_trigger = 1
 " let g:ycm_min_num_of_chars_for_completion = 3
 " YCM的previw窗口比较恼人，还是关闭比较好
 " set completeopt-=preview
-
-" ===================
-"  简单的PHP补全
-" ===================
-au FileType php call PHPFuncList()
-function PHPFuncList()
-    set dictionary-=/tmp/vim_php_funclist.txt dictionary+=/tmp/vim_php_funclist.txt
-    set complete-=k complete+=k
-endfunction
 
 " ===================
 "  vim 自定义插件
