@@ -1,6 +1,6 @@
 " =============================================================================
-" File:          plugin/vim-tips.vim
-" Description:   Random output vim tips.
+" File:          plugin/vim-myvimrc.vim
+" Description:   My vimrc.
 " Author:        Weilong Wang <github.com/wilon>
 " =============================================================================
 
@@ -68,7 +68,7 @@ map <silent> <F11> : if &guioptions =~# 'T' <Bar>
 
 " 状态栏设置
 " set statusline=%f%m%r%h%w%=%{&ff}%Y\ \|\ Line:%3l,Str:%c%V\ \|\ ASSIC:%b\ \|\ %P\ \|\ TotleLine:%L\ \.
-set statusline=%f%m%r%h%w%=Line:%3l\/%L,Str:%c%V\ \|\ ASSIC:%b\ \|\ %P\ \ 
+set statusline=%f%m%r%h%w%=Line:%3l\/%L,Str:%c%V\ \|\ ASSIC:%b\ \|\ %P\ \
 
 " 优化标签标题
 function ShortTabLabel ()
@@ -91,19 +91,9 @@ let g:netrw_preview   = 1
 let g:netrw_liststyle = 3
 let g:netrw_winsize   = 30
 
-" ***** 设置NerdTree *****
-"nautocmd VimEnter * NERDTree
-" let NERDTreeFile='C:\xampp\htdocs\'  " 默认加载目录
-" let NERDTreeChDirMode=2  " 改变目录即改变CWD
-" map <C-b> :NERDTree(g:NERDTreeFile)<CR>  " 默认进入目录
-" map <C-b> :NERDTreeToggle<CR>
-
-" ***** 设置showmarks *****
-" let showmarks_enable = 1
-" let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-" let showmarks_ignore_type = "hqm"
-" let showmarks_hlline_lower = 1
-" let showmarks_hlline_upper = 1
+" ===================
+"  插件设置
+" ===================
 
 " ***** 设置ctrlp *****
 let g:ctrlp_newcache = 1
@@ -114,22 +104,9 @@ let g:ctrlp_working_path_mode = 0
 " ***** 设置vim-tips *****
 let g:vim_tip_lang = 'learnenglish'
 
-" ***** 设置YcmCompleter *****
-" 设置跳转到方法/函数定义的快捷键
-" nnoremap <leader>j :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" 触发补全快捷键
-" let g:ycm_key_list_select_completion = ['<TAB>', '<c-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<S-TAB>', '<c-p>', '<Up>']
-" let g:ycm_auto_trigger = 1
-" 最小自动触发补全的字符大小设置为 3
-" let g:ycm_min_num_of_chars_for_completion = 3
-" YCM的previw窗口比较恼人，还是关闭比较好
-" set completeopt-=preview
-
 " ===================
 "  vim 自定义插件
 " ===================
-"
 "
 " ***** 选择缓冲区文件进行diff *****
 command -complete=buffer -nargs=1 Wilondiff call WilonDiff('<args>')
@@ -142,21 +119,10 @@ command Bye call Bye()
 function! Bye()
     normal ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
 endfunction
-"command -complete=file_in_path -nargs=1 WilonSession call WilonSession('<args>')
-"function! WilonSession(name)
-"    "exec 'source ' . a:name
-"endfunction
-"
 
 " ===================
 "  项目设置
 " ===================
-" let g:sessionPath = $HOME . "/.vim/cache/session/"
-" let g:sessionFile = g:sessionPath . substitute(getcwd(), '/', '_', 'g') . '.vim'
-" if !empty(glob('`ls ' . g:sessionFile . '`'))
-"     exec 'source ' . g:sessionFile
-" endif
-" au CursorMoved * mksession! $HOME/.vim/cache/Session.vim
 
 " ===================
 "  快捷键设置
