@@ -88,8 +88,10 @@ highlight LeaderTab guifg=#ffffff
 match LeaderTab /^\t/
 " 打开文件列表样式
 let g:netrw_preview   = 1
-let g:netrw_liststyle = 3
+"let g:netrw_liststyle = 3
 let g:netrw_winsize   = 30
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
 
 " ===================
 "  插件设置
@@ -102,7 +104,8 @@ let g:ctrlp_use_caching = 1
 let g:ctrlp_working_path_mode = 0
 
 " ***** 设置vim-tips *****
-let g:vim_tip_lang = 'learnenglish'
+let g:vim_tip_lang = 'learnenglish_0'
+let g:vim_tip_frequency = 0.1
 
 " ===================
 "  vim 自定义插件
@@ -117,8 +120,29 @@ endfunction
 " ***** 退出 *****
 command Bye call Bye()
 function! Bye()
-    normal ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+    let g:netrw_liststyle = 1
+    exec "qa!"
 endfunction
+
+function! ToggleVExplorer()
+    if exists("t:expl_buf_num")
+        let expl_win_num = bufwinnr(t:expl_buf_num)
+        if expl_win_num != -1
+            let cur_win_nr = winnr()
+            exec expl_win_num . 'wincmd w'
+            close
+            exec cur_win_nr . 'wincmd w'
+            unlet t:expl_buf_num
+        else
+            unlet t:expl_buf_num
+        endif
+    else
+        exec '1wincmd w'
+        Vexplore
+        let t:expl_buf_num = bufnr("%")
+    endif
+endfunction
+map <C-B> :call ToggleVExplorer()<CR>
 
 " ===================
 "  项目设置
