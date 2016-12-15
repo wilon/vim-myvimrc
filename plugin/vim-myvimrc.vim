@@ -23,8 +23,9 @@ set nu                      "显示行号
 set autoread                "文件在Vim之外修改过，自动重新读入
 set ignorecase              "检索时忽略大小写
 set hls                     "检索时高亮显示匹配项
-set helplang=cn             "帮助系统设置为中文
 "set fdm=manual       "代码折叠模式：自定义
+set langmenu=zh_CN.UTF-8
+set helplang=zh
 
 " UTF-8乱码解决
 set encoding=utf-8
@@ -47,10 +48,9 @@ set shortmess=all
 set showtabline=2        " 默认显示标签
 set guioptions-=e        " 默认标签样式
 " colorscheme Monokai      " 配色
-set guifont=DejaVu_Sans_Mono:h14:cANSI    "字体
+set guifont=DejaVu_Sans_Mono:h14:cANSI     "字体
 "autocmd GUIEnter * simalt ~x              " 全屏
 set cmdheight=1
-set helplang=cn
 
 " 隐藏菜单栏、工具栏
 set guioptions-=m        " 隐藏菜单栏
@@ -88,7 +88,7 @@ highlight LeaderTab guifg=#ffffff
 match LeaderTab /^\t/
 " 打开文件列表样式
 let g:netrw_preview   = 1
-"let g:netrw_liststyle = 3
+let g:netrw_liststyle = 3
 let g:netrw_winsize   = 30
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
