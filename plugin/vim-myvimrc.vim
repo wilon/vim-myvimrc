@@ -88,7 +88,7 @@ highlight LeaderTab guifg=#ffffff
 match LeaderTab /^\t/
 " 打开文件列表样式
 let g:netrw_preview   = 1
-let g:netrw_liststyle = 3
+let g:netrw_liststyle = 1
 let g:netrw_winsize   = 30
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
