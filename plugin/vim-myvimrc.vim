@@ -48,6 +48,8 @@ set shortmess=all
 set showtabline=2        " 默认显示标签
 set guioptions-=e        " 默认标签样式
 " colorscheme Monokai      " 配色
+syntax enable
+colorscheme monokai
 set guifont=DejaVu_Sans_Mono:h14:cANSI     "字体
 "autocmd GUIEnter * simalt ~x              " 全屏
 set cmdheight=1
@@ -155,4 +157,4 @@ map <C-B> :call ToggleVExplorer()<CR>
 map <F2> gT<CR>    " 左边标签
 map <F3> gt<CR>    " 右边便签
 map gf <C-w>gf<CR>    " 打开所在文件
-map <F5> :source $MYVIMRC<CR>    " 刷新vim配置
+" map <F5> :source $MYVIMRC<CR>    " 刷新vim配置
