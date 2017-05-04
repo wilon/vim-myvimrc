@@ -47,9 +47,8 @@ set vb                   " 消除声音
 set shortmess=all
 set showtabline=2        " 默认显示标签
 set guioptions-=e        " 默认标签样式
-" colorscheme Monokai      " 配色
 syntax enable
-colorscheme monokai
+colorscheme monokai      " 配色
 set guifont=DejaVu_Sans_Mono:h14:cANSI     "字体
 "autocmd GUIEnter * simalt ~x              " 全屏
 set cmdheight=1
