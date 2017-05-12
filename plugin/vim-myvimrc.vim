@@ -18,11 +18,12 @@ set laststatus=2            "总是显示状态行
 set expandtab               "以下三个配置配合使用，设置tab和缩进空格数
 set shiftwidth=4
 set tabstop=4
-" set cursorline              "为光标所在行加下划线
-set nu                      "显示行号
-set autoread                "文件在Vim之外修改过，自动重新读入
-set ignorecase              "检索时忽略大小写
-set hls                     "检索时高亮显示匹配项
+" set cursorcolumn          " 高亮列
+set cursorline              " 高亮所在行，高亮方式取决于配色方案
+set nu                      " 显示行号
+set autoread                " 文件在Vim之外修改过，自动重新读入
+set ignorecase              " 检索时忽略大小写
+set hls                     " 检索时高亮显示匹配项
 "set fdm=manual       "代码折叠模式：自定义
 set langmenu=zh_CN.UTF-8
 set helplang=zh
@@ -49,6 +50,7 @@ set showtabline=2        " 默认显示标签
 set guioptions-=e        " 默认标签样式
 syntax enable
 colorscheme monokai      " 配色
+" colorscheme cobalt      " 配色
 set guifont=DejaVu_Sans_Mono:h14:cANSI     "字体
 "autocmd GUIEnter * simalt ~x              " 全屏
 set cmdheight=1
