@@ -13,7 +13,7 @@ set nocompatible
 "  字符设置
 " ===================
 syn on                      "语法支持
-set ai                      "自动缩进
+" set ai                      "自动缩进
 set laststatus=2            "总是显示状态行
 set expandtab               "以下三个配置配合使用，设置tab和缩进空格数
 set shiftwidth=4
@@ -24,7 +24,7 @@ set nu                      " 显示行号
 set autoread                " 文件在Vim之外修改过，自动重新读入
 set ignorecase              " 检索时忽略大小写
 set hls                     " 检索时高亮显示匹配项
-"set fdm=manual       "代码折叠模式：自定义
+"set fdm=manual              "代码折叠模式：自定义
 set langmenu=zh_CN.UTF-8
 set helplang=zh
 
@@ -97,59 +97,22 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 
 " ===================
-"  插件设置
-" ===================
-
-" ***** 设置ctrlp *****
-let g:ctrlp_newcache = 1
-let g:ctrlp_cache_dir = '~/.vim/cache/ctrlp'
-let g:ctrlp_use_caching = 1
-let g:ctrlp_working_path_mode = 0
-
-" ***** 设置vim-tips *****
-let g:vim_tip_lang = 'learnenglish_0'
-let g:vim_tip_frequency = 0.1
-
-" ===================
 "  vim 自定义插件
 " ===================
 "
+
 " ***** 选择缓冲区文件进行diff *****
 command -complete=buffer -nargs=1 Wilondiff call WilonDiff('<args>')
 function! WilonDiff(name)
     exec "vertical diffsplit ".a:name
 endfunction
-"
+
 " ***** 退出 *****
 command Bye call Bye()
 function! Bye()
     let g:netrw_liststyle = 1
     exec "qa!"
 endfunction
-
-function! ToggleVExplorer()
-    if exists("t:expl_buf_num")
-        let expl_win_num = bufwinnr(t:expl_buf_num)
-        if expl_win_num != -1
-            let cur_win_nr = winnr()
-            exec expl_win_num . 'wincmd w'
-            close
-            exec cur_win_nr . 'wincmd w'
-            unlet t:expl_buf_num
-        else
-            unlet t:expl_buf_num
-        endif
-    else
-        exec '1wincmd w'
-        Vexplore
-        let t:expl_buf_num = bufnr("%")
-    endif
-endfunction
-map <C-B> :call ToggleVExplorer()<CR>
-
-" ===================
-"  项目设置
-" ===================
 
 " ===================
 "  快捷键设置
