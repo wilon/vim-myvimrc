@@ -71,7 +71,9 @@ map <silent> <F11> : if &guioptions =~# 'T' <Bar>
 
 " 状态栏设置
 " set statusline=%f%m%r%h%w%=%{&ff}%Y\ \|\ Line:%3l,Str:%c%V\ \|\ ASSIC:%b\ \|\ %P\ \|\ TotleLine:%L\ \.
-set statusline=%f%m%r%h%w%=Line:%3l\/%L,Str:%c%V\ \|\ ASSIC:%b\ \|\ %P\ \
+if has("statusline")
+    set statusline=%f%m%r%h%w%=%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}\ \|\ Line:%3l\/%L,Str:%c%V\ \|\ ASSIC:%b\ \|\ %P\ \:)
+endif
 
 " 优化标签标题
 function ShortTabLabel ()
