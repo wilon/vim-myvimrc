@@ -35,7 +35,9 @@ set wildmenu		" display completion matches in a status line
 set ttimeout		" time out for key codes
 set ttimeoutlen=100	" wait up to 100ms after Esc for special key
 
-set display=truncate
+if v:version > 800
+    set display=truncate
+endif
 
 set scrolloff=5
 
@@ -52,10 +54,6 @@ endif
 map Q gq
 
 inoremap <C-U> <C-G>u<C-U>
-
-if has('mouse')
-  set mouse=a
-endif
 
 if &t_Co > 2 || has("gui_running")
   syntax on
@@ -195,6 +193,8 @@ function! Bye()
     let g:netrw_liststyle = 1
     exec "qa!"
 endfunction
+
+command Utf8 exec "set fileencoding=utf-8"
 
 " ===================
 "  快捷键设置
