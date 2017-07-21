@@ -3,11 +3,91 @@
 " Description:   My vimrc.
 " Author:        Weilong Wang <github.com/wilon>
 " =============================================================================
-
+"
 " ===================
 "  默认设置
 " ===================
-set nocompatible
+"
+
+if v:progname =~? "evim"
+  finish
+endif
+
+if exists('skip_defaults_vim')
+  finish
+endif
+
+if &compatible
+  set nocompatible
+endif
+
+silent! while 0
+  set nocompatible
+silent! endwhile
+
+set backspace=indent,eol,start
+
+set history=200		" keep 200 lines of command line history
+set ruler		" show the cursor position all the time
+set showcmd		" display incomplete commands
+set wildmenu		" display completion matches in a status line
+
+set ttimeout		" time out for key codes
+set ttimeoutlen=100	" wait up to 100ms after Esc for special key
+
+set display=truncate
+
+set scrolloff=5
+
+if has('reltime')
+  set incsearch
+endif
+
+set nrformats-=octal
+
+if has('win32')
+  set guioptions-=t
+endif
+
+map Q gq
+
+inoremap <C-U> <C-G>u<C-U>
+
+if has('mouse')
+  set mouse=a
+endif
+
+if &t_Co > 2 || has("gui_running")
+  syntax on
+
+  let c_comment_strings=1
+endif
+
+if has("autocmd")
+
+  filetype plugin indent on
+
+  augroup vimStartup
+    au!
+
+    autocmd BufReadPost *
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
+
+  augroup END
+
+endif " has("autocmd")
+
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+		  \ | wincmd p | diffthis
+endif
+
+if has('langmap') && exists('+langremap')
+  set nolangremap
+endif
+
 
 " ===================
 "  字符设置
